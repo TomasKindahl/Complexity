@@ -96,8 +96,8 @@ namespace Complexity
             {
                 writer.WriteLine(s);
             }
-            GenHTML.TextAt("y", 20, 30, writer);
-            GenHTML.TextAt("x", 367, 375, writer);
+            GenHTML.SVGtextAt(writer, "y", 20, 30, 15);
+            GenHTML.SVGtextAt(writer, "x", 367, 375, 15);
         }
         public static void SVGfoot(StreamWriter writer)
         {
@@ -109,24 +109,24 @@ namespace Complexity
                 writer.WriteLine(s);
             }
         }
-        public static void TextAt(string text, double x, double y, StreamWriter writer)
+        public static void SVGtextAt(StreamWriter writer, string text, double x, double y, int size = 10)
         {
             writer.WriteLine("    <text");
             writer.WriteLine("       xml:space='preserve'");
-            writer.WriteLine("       style='font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'");
+            writer.WriteLine($"       style='font-style:normal;font-weight:normal;font-size:{size}px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'");
             writer.WriteLine($"       x='{x}' y='{y}'><tspan");
             writer.WriteLine($"         x='{x}' y='{y}'");
-            writer.WriteLine($"         style='font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:15px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'>{text}</tspan></text>");
+            writer.WriteLine($"         style='font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:{size}px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'>{text}</tspan></text>");
         }
-        public static void RotTextAt(string text, double x, double y, StreamWriter writer)
+        public static void SVGrotTextAt(StreamWriter writer, string text, double x, double y, int size = 10)
         {
             double X = y; double Y = -x;
             writer.WriteLine("    <text");
             writer.WriteLine("       xml:space='preserve'");
-            writer.WriteLine("       style='font-style:normal;font-weight:normal;font-size:10px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:left;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'");
+            writer.WriteLine($"       style='font-style:normal;font-weight:normal;font-size:{size}px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:left;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'");
             writer.WriteLine($"       x='{X}' y='{Y}' transform='rotate(90)'><tspan");
             writer.WriteLine($"         x='{X}' y='{Y}'");
-            writer.WriteLine($"         style='font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;text-anchor:start;text-align:left;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'>{text}</tspan></text>");
+            writer.WriteLine($"         style='font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:{size}px;text-anchor:start;text-align:left;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;'>{text}</tspan></text>");
         }
     }
 }
