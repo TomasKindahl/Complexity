@@ -7,7 +7,7 @@ namespace Complexity
     {
         static void Main(string[] args)
         {
-            using (StreamWriter writer = new(@"C:\Users\nisse\test.html"))
+            using (StreamWriter writer = new(@"Y:test.html"))
             {
                 GenHTML.Head(writer, "Generated diagrams");
 
@@ -25,7 +25,7 @@ namespace Complexity
                 // Here draw your statistics:
                 GenHTML.Scale scale = new GenHTML.Scale { X = 1.0, Y = 1.0, xoff = 30, yoff = 40 };
                 GenHTML.PointAt(writer, scale, "red", 0.0, 0.0);
-                GenHTML.PointAt(writer, scale, "red", 10.0, 10.0);
+                GenHTML.PointAt(writer, scale, "#00CC00", 10.0, 100.0); // Green!
 
                 GenHTML.SVGfoot(writer);
 
