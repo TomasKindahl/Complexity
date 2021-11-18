@@ -7,7 +7,7 @@ namespace Complexity
     {
         static void Main(string[] args)
         {
-            using (StreamWriter writer = new(@"Y:test.html"))
+            using (StreamWriter writer = new(@"test.html"))
             {
                 GenHTML.Head(writer, "Generated diagrams");
 
